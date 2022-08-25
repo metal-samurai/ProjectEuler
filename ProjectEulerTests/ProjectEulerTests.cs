@@ -71,5 +71,39 @@ namespace ProjectEuler.Tests
             Assert.AreEqual(9009, ProjectEuler.LargestPalindromeProduct(2));
             Assert.AreEqual(906609, ProjectEuler.LargestPalindromeProduct(3));
         }
+
+        [TestMethod()]
+        public void SmallestMultipleTest()
+        {
+            Assert.AreEqual(60, ProjectEuler.SmallestMultiple(5));
+            Assert.AreEqual(420, ProjectEuler.SmallestMultiple(7));
+            Assert.AreEqual(2520, ProjectEuler.SmallestMultiple(10));
+            Assert.AreEqual(360360, ProjectEuler.SmallestMultiple(13));
+            Assert.AreEqual(232792560, ProjectEuler.SmallestMultiple(20));
+        }
+
+        [TestMethod()]
+        public void SumSquareDifferenceTest()
+        {
+            Assert.AreEqual(2640, ProjectEuler.SumSquareDifference(10));
+            Assert.AreEqual(41230, ProjectEuler.SumSquareDifference(20));
+            Assert.AreEqual(25164150, ProjectEuler.SumSquareDifference(100));
+        }
+
+        [TestMethod()]
+        public void NthPrimeTest()
+        {
+            Assert.AreEqual(13, ProjectEuler.NthPrime(6));
+            Assert.AreEqual(29, ProjectEuler.NthPrime(10));
+            Assert.AreEqual(7919, ProjectEuler.NthPrime(1000));
+            Assert.AreEqual(104743, ProjectEuler.NthPrime(10001));
+        }
+
+        [TestMethod()]
+        public void LargestProductInASeriesTest()
+        {
+            Assert.AreEqual(5832, ProjectEuler.LargestProductInASeries(4));
+            Assert.AreEqual(23514624000, ProjectEuler.LargestProductInASeries(13));
+        }
     }
 }
