@@ -56,9 +56,8 @@ namespace ProjectEuler
         internal static bool IsPrime(long number)
         {
             if (number < 2) return false;
-            if (number == 2) return true;
 
-            for (var i = 2; i < number; i++)
+            for (var i = 2; i <= Math.Truncate(Math.Sqrt(number)); i++)
             {
                 if (number % i == 0) return false;
             }
@@ -210,6 +209,49 @@ namespace ProjectEuler
                 if (product > largestProduct) largestProduct = product;
             }
             return largestProduct;
+        }
+
+        /// <summary>
+        /// There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find the product abc such that a + b + c = n.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static long? SpecialPythagoreanTriplet(int n)
+        {
+            for (var i = 1; i <= n - 2; i++)
+            {
+                for (var j = i + 1; i + j <= n - 1; j++)
+                {
+                    var k = n - i - j;
+
+                    if (i + j + k == n && i * i + j * j == k * k)
+                    {
+                        return i * j * k;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Find the sum of all the primes below n.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static long PrimeSummation(int n)
+        {
+            if (n <= 2) return 0;
+            if (n == 3) return 2;
+
+            long sum = 2;
+
+            for (var i = 3; i < n; i += 2)
+            {
+                if (IsPrime(i)) sum += i;
+            }
+
+            return sum;
         }
     }
 }

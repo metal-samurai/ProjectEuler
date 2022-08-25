@@ -105,5 +105,22 @@ namespace ProjectEuler.Tests
             Assert.AreEqual(5832, ProjectEuler.LargestProductInASeries(4));
             Assert.AreEqual(23514624000, ProjectEuler.LargestProductInASeries(13));
         }
+
+        [TestMethod()]
+        public void SpecialPythagoreanTripletTest()
+        {
+            Assert.AreEqual(480, ProjectEuler.SpecialPythagoreanTriplet(24));
+            Assert.AreEqual(49920, ProjectEuler.SpecialPythagoreanTriplet(120));
+            Assert.AreEqual(31875000, ProjectEuler.SpecialPythagoreanTriplet(1000));
+        }
+
+        [TestMethod()]
+        public void PrimeSummationTest()
+        {
+            Assert.AreEqual(41, ProjectEuler.PrimeSummation(17));
+            Assert.AreEqual(277050, ProjectEuler.PrimeSummation(2001));
+            Assert.AreEqual(873608362, ProjectEuler.PrimeSummation(140759));
+            Assert.AreEqual(142913828922, ProjectEuler.PrimeSummation(2000000));
+        }
     }
 }
