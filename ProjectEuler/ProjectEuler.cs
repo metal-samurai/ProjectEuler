@@ -57,7 +57,7 @@ namespace ProjectEuler
         {
             if (number < 2) return false;
 
-            for (var i = 2; i <= Math.Truncate(Math.Sqrt(number)); i++)
+            for (var i = 2; i <= Math.Sqrt(number); i++)
             {
                 if (number % i == 0) return false;
             }
@@ -252,6 +252,83 @@ namespace ProjectEuler
             }
 
             return sum;
+        }
+
+        /// <summary>
+        /// What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in a given arr grid?
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <returns></returns>
+        /// <remarks>arr is assumed to be a square grid.</remarks>
+        public static long LargestGridProduct(int[,] arr)
+        {
+            var numValues = 4;
+            long largestProduct = 0;
+
+            for (var i = 0; i < arr.GetLength(0); i++)
+            {
+                for (var j = 0; j < arr.GetLength(1); j++)
+                {
+                    long product = 0;
+
+                    //check down
+                    if (i <= arr.GetLength(0) - numValues)
+                    {
+                        product = 1;
+
+                        for (var k = i; k < i + numValues; k++)
+                        {
+                            product *= arr[k, j];
+                        }
+
+                        if (product > largestProduct) largestProduct = product;
+                    }
+                    
+                    //check right
+                    if (j <= arr.GetLength(1) - numValues)
+                    {
+                        product = 1;
+                        
+                        for (var k = j; k < j + numValues; k++)
+                        {
+                            product *= arr[i, k];
+                        }
+
+                        if (product > largestProduct) largestProduct = product;
+                    }
+
+                    //check diagonal left
+                    if (i <= arr.GetLength(0) - numValues && j >= numValues - 1)
+                    {
+                        product = 1;
+                        
+                        for (var k = j; k >= j - numValues + 1; k--)
+                        {
+                            product *= arr[i + (j - k), k];
+                        }
+
+                        if (product > largestProduct) largestProduct = product;
+                    }
+
+                    //check diagonal right
+                    if (i <= arr.GetLength(0) - numValues && j <= arr.GetLength(1) - numValues)
+                    {
+                        product = 1;
+                        
+                        for (var k = j; k < j + numValues; k++)
+                        {
+                            product *= arr[i + (k - j), k];
+                        }
+
+                        if (product > largestProduct) largestProduct = product;
+                    }
+                        
+                }
+                
+
+            }
+
+            return largestProduct;
         }
     }
 }
