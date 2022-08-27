@@ -162,5 +162,15 @@ namespace ProjectEuler.Tests
             Assert.AreEqual(70600674, ProjectEuler.LargestGridProduct(grid1));
             Assert.AreEqual(14169081, ProjectEuler.LargestGridProduct(grid2));
         }
+
+        [TestMethod()]
+        public void DivisibleTriangleNumberTest()
+        {
+            Assert.AreEqual(28, ProjectEuler.DivisibleTriangleNumber(5));
+            Assert.AreEqual(630, ProjectEuler.DivisibleTriangleNumber(23));
+            Assert.AreEqual(1385280, ProjectEuler.DivisibleTriangleNumber(167));
+            Assert.AreEqual(17907120, ProjectEuler.DivisibleTriangleNumber(374));
+            Assert.AreEqual(76576500, ProjectEuler.DivisibleTriangleNumber(500));
+        }
     }
 }

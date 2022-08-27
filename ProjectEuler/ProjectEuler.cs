@@ -330,5 +330,33 @@ namespace ProjectEuler
 
             return largestProduct;
         }
+
+        /// <summary>
+        /// What is the value of the first triangle number to have over n divisors?
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static long DivisibleTriangleNumber(int n)
+        {
+            if (n == 0) return 1;
+
+            var triangleNumber = 1;
+            var divisorCount = 0;
+
+            for (var i = 2; divisorCount <= n; i++)
+            {
+                triangleNumber += i;
+                divisorCount = 0;
+                
+                for (var j = 1; j < Math.Sqrt(triangleNumber); j++)
+                {
+                    if (triangleNumber % j == 0) divisorCount += 2;
+                }
+
+                if (triangleNumber % Math.Sqrt(triangleNumber) == 0) divisorCount++;
+            }
+
+            return triangleNumber;
+        }
     }
 }
